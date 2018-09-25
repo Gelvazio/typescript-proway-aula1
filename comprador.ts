@@ -16,7 +16,8 @@ export class Comprador{
             return false;
         }
         this.carroComprado = carro;
-        this.setSaldoDisponivel(this.saldoDisponivel - this.carroComprado.getValor());
+        let novoSaldo = this.saldoDisponivel - this.carroComprado.getValor();
+        this.setSaldoDisponivel(novoSaldo);
         return true;
     }
 

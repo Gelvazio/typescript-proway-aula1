@@ -11,7 +11,8 @@ var Comprador = /** @class */ (function () {
             return false;
         }
         this.carroComprado = carro;
-        this.setSaldoDisponivel(this.saldoDisponivel - this.carroComprado.getValor());
+        var novoSaldo = this.saldoDisponivel - this.carroComprado.getValor();
+        this.setSaldoDisponivel(novoSaldo);
         return true;
     };
     Comprador.prototype.getNome = function () {
