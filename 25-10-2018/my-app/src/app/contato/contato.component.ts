@@ -24,7 +24,10 @@ export class ContatoComponent implements OnInit {
       'Joacir',
       'Tiago',
       'Felipe'
-    ];
+    ]
   }
 
+  mostrarPrimeiroNome():void{
+    alert('O primeiro nome é ' + this.contatos[0]);
+  }
 }
