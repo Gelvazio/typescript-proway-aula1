@@ -12,7 +12,7 @@ export class Vendedor{
     public getNome(){
         return this.nome;
         
-    }
+    } 
     public getCarrosVenda(): Array<Carro>{
         return this.carrosVenda;
     }
