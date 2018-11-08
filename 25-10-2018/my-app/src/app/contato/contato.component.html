@@ -1,7 +1,7 @@
 <h1> {{ titulo }} </h1>
 <ul>
   <li *ngFor="let contato of contatos">
-    {{contato}}
+    <app-contato-detalhe [contato]="contato" (notificar)="mostrarFilho($event)"></app-contato-detalhe>
   </li>
   <button (click)="mostrarPrimeiroNome()">Nome</button>
 </ul>
