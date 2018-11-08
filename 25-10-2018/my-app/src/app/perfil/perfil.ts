@@ -6,7 +6,7 @@ export default class Perfil{
         public cargo: string,
         public email: string,
         public site?: string,
-        public facebook?: string
+        public facebook?: string,
         public foto?: string
     ){
         

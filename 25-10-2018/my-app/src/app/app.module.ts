@@ -11,7 +11,7 @@ import { PerfilFotoComponent } from './perfil/perfil-foto/perfil-foto.component'
 import { CadastroContatoComponent } from './contato/cadastro-contato/cadastro-contato.component';
 import { ListaContatosComponent } from './contato/cadastro-contato/lista-contatos/lista-contatos.component';
 import { FormularioContatoComponent } from './contato/cadastro-contato/formulario-contato/formulario-contato.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

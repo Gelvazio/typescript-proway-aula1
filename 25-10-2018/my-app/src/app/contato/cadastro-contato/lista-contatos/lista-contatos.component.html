@@ -1,3 +1,6 @@
-<p>
-  lista-contatos works!
-</p>
+<ul>
+  <li *ngFor="let contato of contatos">
+    <app-contato-detalhe [contato]="contato" (notificar)="mostrarFilho($event)"></app-contato-detalhe>
+  </li>
+  <button (click)="mostrarPrimeiroNome()">Nome</button>
+</ul>

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioContatoComponent implements OnInit {
 
+  id:string;
+  nome:string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  enviar(){
+    alert(`id=${this.id}, nome=${this.nome}`);
+  }
 }
