@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-form-aluno (salvar)="handlerSalvar($event)">
+      </app-form-aluno>
+    </div>
+
+    <div class="col-md-12">
+      <app-lista-alunos [alunos]="alunos"></app-lista-alunos>
+    </div>
+</div>
+</div>

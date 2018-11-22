@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import Contato, { Tipo } from '../../contato';
 
 @Component({
   selector: 'app-formulario-contato',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioContatoComponent implements OnInit {
 
-  id:string;
-  nome:string;
+  @Output()
+  salvar:EventEmitter<Contato> = new EventEmitter<Contato>();
+
+  id:string = '';
+  name:string = '';
+  email:string = '';
+  telefone:string = '';
+  tipo:Tipo;
+  tipos:Array<string> = Object.keys(Tipo).filter(k=> /\D/.test(k));
 
   constructor() { }
 
@@ -16,6 +24,22 @@ export class FormularioContatoComponent implements OnInit {
   }
 
   enviar(){
-    alert(`id=${this.id}, nome=${this.nome}`);
+    const contato = new Contato(
+      this.id != null ? parseInt(this.id) : undefined,
+      this.name,
+      this.email,
+      this.telefone,
+      this.tipo
+    );
+    this.salvar.emit(contato);
+    this.limparCampos();
   }
+  limparCampos(){
+    this.name = '';
+    this.email = '';
+    this.telefone = '';
+    this.id = '';
+    this.tipo = undefined;
+  }
+
 }

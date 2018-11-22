@@ -8,25 +8,21 @@ import Perfil from './perfil';
 })
 export class PerfilComponent implements OnInit {
 
-  titulo: string;
-  perfil: Perfil;
+  titulo:string;
+  perfis:Perfil[];
 
   constructor() { }
 
   ngOnInit() {
-    this.titulo = 'Perfil';
-    this.perfil = new Perfil(
-      1, 
-      'Mauricio Schmitz', 
-      'Developer', 
-      'contato@mauricioschmitz.com.br', 
-      'https://www.mauricioschmitz.com.br', 
-      'https://www.facebook.com/mauricioschmitzdesenvolvedorweb',
-      'https://cdn.mauricioschmitz.com.br/portfolio-assets/media/hello-section/about.jpg'
-    );
+    this.titulo = 'Título do componente de perfil';
+    this.perfis = [
+      new Perfil(1, 'Elegante'),
+      new Perfil(2, 'Moderado')
+    ];
   }
 
   mostrarFilho(filho:Perfil){
-    alert('Você é ' + filho.nome)
+    alert('Você é '+filho.name);
   }
+
 }

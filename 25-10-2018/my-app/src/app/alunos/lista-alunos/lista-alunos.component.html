@@ -1,0 +1,24 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Pai</th>
+        <th>Mãe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of alunos">
+        <td>{{aluno.id}}</td>
+        <td>{{aluno.nome}}</td>
+        <td>{{aluno.cpf}}</td>
+        <td>{{aluno.telefone}}</td>
+        <td>{{aluno.pai}}</td>
+        <td>{{aluno.mae}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

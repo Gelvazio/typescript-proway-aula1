@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,11 +9,12 @@ import { ContatoComponent } from './contato/contato.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ContatoDetalheComponent } from './contato/contato-detalhe/contato-detalhe.component';
 import { PerfilDetalheComponent } from './perfil/perfil-detalhe/perfil-detalhe.component';
-import { PerfilFotoComponent } from './perfil/perfil-foto/perfil-foto.component';
 import { CadastroContatoComponent } from './contato/cadastro-contato/cadastro-contato.component';
 import { ListaContatosComponent } from './contato/cadastro-contato/lista-contatos/lista-contatos.component';
 import { FormularioContatoComponent } from './contato/cadastro-contato/formulario-contato/formulario-contato.component';
-import { FormsModule } from '@angular/forms';
+import { AlunosComponent } from './alunos/alunos.component';
+import { FormAlunoComponent } from './alunos/form-aluno/form-aluno.component';
+import { ListaAlunosComponent } from './alunos/lista-alunos/lista-alunos.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +23,18 @@ import { FormsModule } from '@angular/forms';
     PerfilComponent,
     ContatoDetalheComponent,
     PerfilDetalheComponent,
-    PerfilFotoComponent,
     CadastroContatoComponent,
     ListaContatosComponent,
-    FormularioContatoComponent
+    FormularioContatoComponent,
+    AlunosComponent,
+    FormAlunoComponent,
+    ListaAlunosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

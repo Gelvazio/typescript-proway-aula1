@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Aluno</h1>
+  <form (submit)="enviar()">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input type="number" class="form-control" id="id" [(ngModel)]="id" name="id">
+    </div>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" id="cpf" required [(ngModel)]="cpf" name="cpf">
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" id="telefone" required [(ngModel)]="telefone" name="telefone">
+    </div>
+    <div class="form-group">
+      <label for="pai">Pai</label>
+      <input type="text" class="form-control" id="pai" required [(ngModel)]="pai" name="pai">
+    </div>
+    <div class="form-group">
+      <label for="mae">Mãe</label>
+      <input type="text" class="form-control" id="mae" required [(ngModel)]="mae" name="mae">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

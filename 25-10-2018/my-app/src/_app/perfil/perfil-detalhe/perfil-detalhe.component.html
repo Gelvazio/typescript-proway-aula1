@@ -1,0 +1,21 @@
+<app-perfil-foto [foto]="perfil.foto"></app-perfil-foto>
+<!-- END SIDEBAR USERPIC -->
+<!-- SIDEBAR USER TITLE -->
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+  {{ perfil.nome }}
+  </div>
+  <div class="profile-usertitle-job">
+  {{ perfil.cargo }}
+  </div>
+  <div class="profile-usertitle-job">
+  {{ perfil.email }}
+  </div>
+</div>
+<!-- END SIDEBAR USER TITLE -->
+<!-- SIDEBAR BUTTONS -->
+<div class="profile-userbuttons">
+  <a *ngIf="perfil.site !== undefined" href="{{perfil.site}}" target="_blank" class="btn btn-success btn-sm"><i class="fa fa-globe"></i> Site</a>
+  <a *ngIf="perfil.facebook !== undefined" href="{{perfil.facebook}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-facebook"></i> Facebook</a>
+  <button class="btn btn-warning btn-sm" (click)="notificarPai()">Mostrar nome</button>
+</div>

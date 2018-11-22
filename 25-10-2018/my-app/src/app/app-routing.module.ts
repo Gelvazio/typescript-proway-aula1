@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContatoComponent } from './contato/contato.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CadastroContatoComponent } from './contato/cadastro-contato/cadastro-contato.component';
+import { AlunosComponent } from './alunos/alunos.component';
 
 const routes: Routes = [
   {
-    path: 'contatos',
-    component: ContatoComponent
+    path:'contatos',
+    component:CadastroContatoComponent
   },
   {
-    path: 'perfil',
-    component: PerfilComponent
+    path:'alunos',
+    component:AlunosComponent
   }
 ];
 
