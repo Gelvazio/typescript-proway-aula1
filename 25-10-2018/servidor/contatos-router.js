@@ -18,8 +18,8 @@ const buscarPorId = (req,res)=>{
 };
 
 const inserir = (req, res)=>{
-  const {nome,email,telefone,tipo} = req.body;
-  const contato = {nome,email,telefone,tipo};
+  const {name,email,telefone,tipo} = req.body;
+  const contato = {name,email,telefone,tipo};
   repository.inserir(TYPE,contato);
   res.status(201).json({id: contato.id});
 };
@@ -40,7 +40,7 @@ const remover = (req,res)=>{
 };
 
 function loadUpdateField(req){
-   const record = ['nome','email','telefone','tipo'].reduce((result,current)=> {
+   const record = ['name','email','telefone','tipo'].reduce((result,current)=> {
     if(req.body[current]){
       result[current] = req.body[current]
     }

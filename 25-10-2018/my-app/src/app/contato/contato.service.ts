@@ -17,9 +17,15 @@ export class ContatoService {
     return this.httpClient.get<Contato[]>('/api/contatos');
   }
 
+  buscarContatoPorId(id:string):Observable<Contato> {
+    return this.httpClient.get<Contato>(`/api/contatos/${id}`);
+  }
+
   salvar(contato:Contato){
     if(!contato.id){
       return this.httpClient.post('api/contatos', contato);
+    } else {
+      return this.httpClient.put(`api/contatos/${contato.id}`, contato);
     }
   }
 

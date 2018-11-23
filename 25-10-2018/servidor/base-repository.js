@@ -7,7 +7,16 @@ const data = {
         email:"contato@maurcioschmitz.com.br",
         telefone:"33221100",
         tipo:"FAMILIA"}
-      ]
+      ],
+    "ALUNOS": [
+        {
+          id:1,
+          nome:"Mauricio",
+          cpf:"12345678909",
+          telefone:"33221100",
+          pai:"Meu Pai",
+          mae:"Minha Mãe"}
+        ]
   }
   
   const getRepository=(type)=>{

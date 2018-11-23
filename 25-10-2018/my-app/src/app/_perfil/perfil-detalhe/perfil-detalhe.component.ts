@@ -12,13 +12,14 @@ export class PerfilDetalheComponent implements OnInit {
   perfil:Perfil;
 
   @Output()
-  notificar: EventEmitter<Perfil> = new EventEmitter<Perfil>();
+  notificar:EventEmitter<Perfil> = new EventEmitter<Perfil>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  notificarPai() {
+  notificarPai(){
     this.notificar.emit(this.perfil);
   }
 

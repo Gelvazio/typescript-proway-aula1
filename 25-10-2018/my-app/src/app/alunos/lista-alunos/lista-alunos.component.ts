@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Aluno from '../aluno';
+import { AlunoService } from '../aluno.service';
 
 @Component({
   selector: 'app-lista-alunos',
@@ -11,9 +12,11 @@ export class ListaAlunosComponent implements OnInit {
   @Input()
   alunos:Array<Aluno>;
 
-  constructor() { }
+  constructor(private service:AlunoService) { }
 
   ngOnInit() {
+    this.service.getAlunos()
+      .subscribe(values => this.alunos = values);
   }
 
 }

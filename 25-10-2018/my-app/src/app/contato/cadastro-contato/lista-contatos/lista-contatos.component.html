@@ -1,7 +1,16 @@
 <div>
+  <div class="row">
+      <div class="col-md-9">
+          <h1>Lista de contatos</h1>
+      </div>
+      <div class="col-md-3 text-right">
+        <a [routerLink]="['novo']" class="btn btn-success"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
   <table class="table">
     <thead>
       <tr>
+        <th>Ações</th>
         <th>Código</th>
         <th>Nome</th>
         <th>E-mail</th>
@@ -11,8 +20,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let contato of contatos">
+        <td><a [routerLink]="[contato.id]"><i class="fa fa-edit"></i></a></td>
         <td>{{contato.id}}</td>
-        <td>{{contato.name}}</td>
+        <td><a [routerLink]="[contato.id]">{{contato.name}}</a></td>
         <td>{{contato.email}}</td>
         <td>{{contato.telefone}}</td>
         <td>{{contato.tipo}}</td>

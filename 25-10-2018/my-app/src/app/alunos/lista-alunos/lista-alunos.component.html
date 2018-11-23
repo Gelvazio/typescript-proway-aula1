@@ -1,7 +1,16 @@
 <div>
+  <div class="row">
+    <div class="col-md-9">
+        <h1>Lista de alunos</h1>
+    </div>
+    <div class="col-md-3 text-right">
+      <a [routerLink]="['novo']" class="btn btn-success"><i class="fa fa-plus"></i></a>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
+        <th>Ações</th>
         <th>Código</th>
         <th>Nome</th>
         <th>CPF</th>
@@ -12,6 +21,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let aluno of alunos">
+        <td><a [routerLink]="[aluno.id]"><i class="fa fa-edit"></i></a></td>
         <td>{{aluno.id}}</td>
         <td>{{aluno.nome}}</td>
         <td>{{aluno.cpf}}</td>

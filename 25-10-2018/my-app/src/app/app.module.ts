@@ -15,6 +15,7 @@ import { FormularioContatoComponent } from './contato/cadastro-contato/formulari
 import { AlunosComponent } from './alunos/alunos.component';
 import { FormAlunoComponent } from './alunos/form-aluno/form-aluno.component';
 import { ListaAlunosComponent } from './alunos/lista-alunos/lista-alunos.component';
+import { PerfilFotoComponent } from 'src/_app/perfil/perfil-foto/perfil-foto.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListaAlunosComponent } from './alunos/lista-alunos/lista-alunos.compone
     FormularioContatoComponent,
     AlunosComponent,
     FormAlunoComponent,
-    ListaAlunosComponent
+    ListaAlunosComponent,
+    PerfilFotoComponent
   ],
   imports: [
     BrowserModule,
