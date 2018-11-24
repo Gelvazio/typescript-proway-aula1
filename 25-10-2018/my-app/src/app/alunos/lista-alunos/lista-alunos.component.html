@@ -21,7 +21,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let aluno of alunos">
-        <td><a [routerLink]="[aluno.id]" class="btn btn-info"><i class="fa fa-edit"></i></a></td>
+        <td>
+          <div class="btn-group">
+              <a [routerLink]="[aluno.id]" class="btn btn-info"><i class="fa fa-edit"></i></a>
+              <a [routerLink]="[aluno.id]" class="btn btn-danger"><i class="fa fa-remove"></i></a>
+          </div>
+        </td>
         <td>{{aluno.id}}</td>
         <td>{{aluno.nome}}</td>
         <td>{{aluno.cpf}}</td>
