@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { FormAlunoComponent } from './alunos/form-aluno/form-aluno.component';
 import { ListaAlunosComponent } from './alunos/lista-alunos/lista-alunos.component';
 import { PerfilFotoComponent } from 'src/_app/perfil/perfil-foto/perfil-foto.component';
+import { ReactFormAlunosComponent } from './alunos/react-form-alunos/react-form-alunos.component';
+import { ReactFormContatoComponent } from './contato/react-form-contato/react-form-contato.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,15 @@ import { PerfilFotoComponent } from 'src/_app/perfil/perfil-foto/perfil-foto.com
     AlunosComponent,
     FormAlunoComponent,
     ListaAlunosComponent,
-    PerfilFotoComponent
+    PerfilFotoComponent,
+    ReactFormAlunosComponent,
+    ReactFormContatoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

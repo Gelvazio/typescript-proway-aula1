@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Aluno</h1>
+  <form [formGroup]='formAluno' (submit)="submitHandler()">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input type="number" class="form-control" id="id" formControlName="id" readonly>
+    </div>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome" required>
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" id="cpf" required formControlName="cpf">
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" id="telefone" formControlName="telefone">
+    </div>
+    <div class="form-group">
+      <label for="pai">Pai</label>
+      <input type="text" class="form-control" id="pai" formControlName="pai">
+    </div>
+    <div class="form-group">
+      <label for="mae">Mãe</label>
+      <input type="text" class="form-control" id="mae" required formControlName="mae">
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-success" [disabled]="formAluno.invalid">Submit</button>
+        <a [routerLink]="['/alunos']" class="btn btn-warning">Cancelar</a>
+    </div>
+    
+  </form>
+</div>

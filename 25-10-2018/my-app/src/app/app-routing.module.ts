@@ -8,6 +8,8 @@ import { FormularioContatoComponent } from './contato/cadastro-contato/formulari
 import { ListaContatosComponent } from './contato/cadastro-contato/lista-contatos/lista-contatos.component';
 import { ListaAlunosComponent } from './alunos/lista-alunos/lista-alunos.component';
 import { FormAlunoComponent } from './alunos/form-aluno/form-aluno.component';
+import { ReactFormAlunosComponent } from './alunos/react-form-alunos/react-form-alunos.component';
+import { ReactFormContatoComponent } from './contato/react-form-contato/react-form-contato.component';
 
 const routes: Routes = [
   {
@@ -19,12 +21,20 @@ const routes: Routes = [
     component:FormularioContatoComponent
   },
   {
+    path:'contatos-react/:id',
+    component:ReactFormContatoComponent
+  },
+  {
     path:'alunos',
     component:ListaAlunosComponent
   },
   {
     path:'alunos/:id',
     component:FormAlunoComponent
+  },
+  {
+    path:'alunos-react/:id',
+    component:ReactFormAlunosComponent
   }
 ];
 
