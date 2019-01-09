@@ -31,8 +31,10 @@ app.all('*', (req, res, next) => {
 app.get('/', [m1,m2,m3]);
 
 app.post('/login', (req, res, next) => {
-    console.log(req.body.email);
-    res.send('Email=' + req.body.email);
+    const {email, senha} = req.body;
+    console.log('Email=', email);
+    console.log('Senha=',senha);
+    res.send('Login processado');
 });
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`serve rodando na porta ${port}`));
