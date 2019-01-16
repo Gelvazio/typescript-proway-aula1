@@ -1,6 +1,12 @@
 const routes = []
     .concat(
-        require('./usuario').route
+        require('./modules/usuario').route
+    )
+    .concat(
+        require('./modules/categoria').route
+    )
+    .concat(
+        require('./modules/conta').route
     )
 module.exports = (app) => {
     routes.forEach(route => {
