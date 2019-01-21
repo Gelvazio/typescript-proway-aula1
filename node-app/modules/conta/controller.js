@@ -1,23 +1,30 @@
+const cote = require('cote');
+
+const requester = new cote.Requester({ name: 'conta-service', key: 'conta'});
+
 module.exports = function(repository){
     const findAll = (req, res, next) => {
-        repository.findAll()
-            .then(contas => res.json(contas))
-            .catch(err => next(err));
+        const request = { type: 'findAll'};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.json(response.contas);
+            }
+        });
     };
 
     const findById = (req, res, next) => {
         const oid = req.params.id;
         if(oid) {
-            repository.findById(oid)
-                .then(conta => {
-                    if(!conta) {
-                        res.status('412').json({message: "Conta não encontrada"});
-                    } else {
-                        res.json(conta);
-                    }
-                    
-                })
-                .catch(err => next(err))
+            const request = { type: 'findById', data: {oid}};
+            requester.send(request, (response) => {
+                if(response.err) {
+                    next(response.err);
+                } else {
+                    res.json(response.conta);
+                }
+            });
         } else {
             res.status('412').json({message: "id não informado"})
         }
@@ -26,21 +33,27 @@ module.exports = function(repository){
 
     const insert = (req, res, next) => {
         const {descricao, valor, oidUsuario, oidCategoria } = req.body;
-        repository.insert({descricao, valor, oidUsuario, oidCategoria})
-        .then((conta) => {
-            res.status(201).json(conta)
-        })
-        .catch(err => next(err));
+        const request = { type: 'insert', data: {descricao, valor, oidUsuario, oidCategoria}};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.status(201).json(response.conta)
+            }
+        });
     }
 
     const update = (req, res, next) => {
         const {descricao, valor} = req.body;
         const oid = req.params.id;
-        repository.update({oid, descricao, valor })
-        .then((conta) => {
-            res.status(204).json(conta)
-        })
-        .catch(err => next(err));
+        const request = { type: 'update', data: {descricao, valor, oid}};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.status(201).json(response);
+            }
+        });
     }
 
     const remove = (req, res, next) => {

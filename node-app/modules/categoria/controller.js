@@ -1,23 +1,30 @@
+const cote = require('cote');
+
+const requester = new cote.Requester({ name: 'categoria-service', key: 'categoria'});
+
 module.exports = function(repository){
     const findAll = (req, res, next) => {
-        repository.findAll()
-            .then(categorias => res.json(categorias))
-            .catch(err => next(err));
+        const request = { type: 'findAll'};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.json(response.categorias);
+            }
+        });
     };
 
     const findById = (req, res, next) => {
         const oid = req.params.id;
         if(oid) {
-            repository.findById(oid)
-                .then(categoria => {
-                    if(!categoria) {
-                        res.status('412').json({message: "Categoria não encontrada"});
-                    } else {
-                        res.json(categoria);
-                    }
-                    
-                })
-                .catch(err => next(err))
+            const request = { type: 'findById', data: {oid}};
+            requester.send(request, (response) => {
+                if(response.err) {
+                    next(response.err);
+                } else {
+                    res.json(response.categoria);
+                }
+            });
         } else {
             res.status('412').json({message: "id não informado"})
         }
@@ -26,30 +33,39 @@ module.exports = function(repository){
 
     const insert = (req, res, next) => {
         const {nome} = req.body;
-        repository.insert({nome})
-        .then((categoria) => {
-            res.status(201).json(categoria)
-        })
-        .catch(err => next(err));
+        const request = { type: 'insert', data: {nome}};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.status(201).json(response.categoria)
+            }
+        });
     }
 
     const update = (req, res, next) => {
         const {nome} = req.body;
         const oid = req.params.id;
-        repository.update({oid, nome})
-        .then((categoria) => {
-            res.status(204).json(categoria)
-        })
-        .catch(err => next(err));
+        const request = { type: 'update', data: {nome, oid}};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.status(201).json(response);
+            }
+        });
     }
 
     const remove = (req, res, next) => {
         const oid = req.params.id;
-        repository.remove(oid)
-        .then(() => {
-            res.status(204).send()
-        })
-        .catch(err => next(err));
+        const request = { type: 'remove', data: {oid}};
+        requester.send(request, (response) => {
+            if(response.err) {
+                next(response.err);
+            } else {
+                res.status(204).json(response);
+            }
+        });
     }
 
     return {

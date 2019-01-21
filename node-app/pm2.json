@@ -1,0 +1,44 @@
+{
+    "apps" : [{
+        "name"        : "usuario-service",
+        "script"      : "./microservices/usuario-service.js",
+        "watch"       : true,
+        "env": {
+          "NODE_ENV": "development",
+          "COTE_ENV": "mauricio"
+        },
+        "env_production" : {
+           "NODE_ENV": "production"
+        }
+      },{
+        "name"        : "categoria-service",
+        "script"      : "./microservices/categoria-service.js",
+        "watch"       : true,
+        "env": {
+          "NODE_ENV": "development",
+          "COTE_ENV": "mauricio"
+        },
+        "env_production" : {
+           "NODE_ENV": "production"
+        }
+      },{
+        "name"        : "conta-service",
+        "script"      : "./microservices/conta-service.js",
+        "watch"       : true,
+        "env": {
+          "NODE_ENV": "development",
+          "COTE_ENV": "mauricio"
+        },
+        "env_production" : {
+           "NODE_ENV": "production"
+        }
+      },{
+      "name"       : "api-app",
+      "script"     : "./server.js",
+      "env": {
+        "NODE_ENV": "development",
+        "COTE_ENV": "mauricio"
+      },
+      "watch"       : true
+    }]
+  }
