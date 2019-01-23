@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.DECIMAL(10,2)
         }
     },{
-        tableName: "contas"
+        tableName: "Contas"
     });
 
     Conta.associate = function(models) {

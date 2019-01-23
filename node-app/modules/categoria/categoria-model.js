@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING
         }
     },{
-        tableName: 'categorias'
+        tableName: 'Categorias'
     });
 
     Categoria.associate = function(models) {

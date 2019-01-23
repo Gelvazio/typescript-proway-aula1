@@ -7,8 +7,29 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}\\server.js"
+            "name": "Server",
+            "program": "${workspaceFolder}\\server.js",
+            "env": {
+                "COTE_ENV": "mauricio"
+            }
+        },
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Usuario",
+          "program": "${workspaceFolder}/microservices/usuario-service.js",
+          "env": {
+            "COTE_ENV": "mauricio"
+          }
+        },
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Categoria",
+          "program": "${workspaceFolder}/microservices/categoria-service.js",
+          "env": {
+            "COTE_ENV": "mauricio"
+          }
         }
     ]
 }

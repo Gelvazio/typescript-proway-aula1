@@ -41,7 +41,7 @@ module.exports = function(repository){
             if(response.err) {
                 next(response.err);
             } else {
-                res.status(201).json(response.usuario)
+                res.status(201).json(response.user)
             }
         });
         /*
@@ -78,11 +78,24 @@ module.exports = function(repository){
         });
     }
 
+    const authenticate = (req, res, next) => {
+        const { email, senha } = req.body;
+        const request = { type: 'autenticar', credentials: {email, senha}};
+        requester.send(request, (response) => {
+            if(response.token && response.usuario) {
+                res.json(response);
+            } else {
+                res.status(406).json({message: 'Email ou senha inválidos'});
+            }
+        })
+    }
+
     return {
         FIND_ALL: [findAll],
         FIND_BY_ID: [findById],
         INSERT: [insert],
         UPDATE: [update],
-        REMOVE: [remove]
+        REMOVE: [remove],
+        AUTHENTICATE: [authenticate]
     }
 }

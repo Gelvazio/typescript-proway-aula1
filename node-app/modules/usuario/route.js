@@ -24,6 +24,11 @@ module.exports = (controller) => {
             path: '/usuarios/:id',
             method: 'delete',
             actions: controller.REMOVE
+        },
+        {
+            path: '/usuarios/autenticar',
+            method: 'post',
+            actions: controller.AUTHENTICATE
         }
     ]
 

@@ -1,5 +1,7 @@
 const cote = require('cote');
 const repository = require('../modules/usuario/repository');
+const tokenService = require('../modules/usuario/token-service');
+
 const responder = new cote.Responder({
     name: 'user-service',
     key: 'usuario'
@@ -47,5 +49,24 @@ responder.on('remove', (req, cb) => {
     .then(() => {
         cb(true);
     })
+    .catch(err => cb({err}));
+});
+
+responder.on('autenticar', (req, cb) => {
+    const { credentials } = req;
+    repository.findByEmail(credentials.email)
+    .then((usuario) =>  {
+        return new Promise((resolve, reject) => {
+            if(usuario){
+                if(usuario.senha == credentials.senha){
+                    resolve(usuario);
+                }
+            } else {
+              reject({message: "Usuário ou senha inválido"});
+            } 
+        });
+    })
+    .then(tokenService.gerarToken)
+    .then(tokenInfo  => cb(tokenInfo))
     .catch(err => cb({err}));
 });

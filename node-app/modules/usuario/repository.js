@@ -14,6 +14,20 @@ const findById = (oid) => {
      .then((data => data && data.length ? data[0]: null));
 }
 
+const findByEmail = (email) => {
+    const where = {
+        email
+    };
+    // return db[ENTITY_NAME].findOne({where});
+    return db[ENTITY_NAME].findAll({where})
+     .then((data) => {
+         return data && data.length ? data[0]: null
+     })
+     .catch(err => {
+         console.log(err);
+     });
+}
+
 const insert = (usuario) => {
     return db[ENTITY_NAME].create(usuario)
      .then((usuario => usuario));
@@ -43,5 +57,6 @@ module.exports = {
     findById,
     insert,
     update,
-    remove
+    remove,
+    findByEmail
 }
