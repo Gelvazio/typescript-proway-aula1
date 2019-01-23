@@ -39,8 +39,10 @@ app.use('/api/v1', router);
 
 const viewsRouter = express.Router();
 viewsRouter.get('/', (req, res, next) => {
+    var items = [{ title: "foo", id: 1 }, { title: "bar", id: 2}];
     const data = {
-        titulo: 'Olá mundo'
+        titulo: 'Olá mundo',
+        items
     }
     res.render('index.html', data);
 });
