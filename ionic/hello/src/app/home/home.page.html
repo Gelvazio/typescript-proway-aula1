@@ -1,13 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Contatos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  <ion-button [href]="'/pagina1'">Ir para a página 01</ion-button>
+  <ion-button (click)="goContent()"> Ir para conteúdo</ion-button>
+  <ion-button (click)="goButtons()"> Ir para botões</ion-button>
+  <ion-button [routerLink]="'/alertas'"> Ir para alertas</ion-button>
+  <ion-button [routerLink]="'/cartoes'"> Ir para cartoes</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let contato of contatos">
+      <ion-label>{{ contato.nome }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-chip>
+      <ion-label>Default</ion-label>
+    </ion-chip>
 </ion-content>
