@@ -1,0 +1,7 @@
+{
+  "name": "cobra-facil",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
