@@ -18,12 +18,13 @@ export class CategoriasPage implements OnInit {
     this.storage.get('token-key').then((res) => {
       const token = res;
       const httpOptions = {
-        headers: new HttpHeaders({
+        headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer' + token
-        })
+        }
       }
-      this.http.get(`${HOST}:${PORT}/api/v1/categorias`, httpOptions).subscribe((result) => {
+      this.http.get<any>(`${HOST}:${PORT}/api/v1/categorias`, httpOptions).subscribe((result) => {
+        this.data = result;
       })
     })
     
