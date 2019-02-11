@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>categorias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <form (ngSubmit)="addItem()">
+      <ion-item>
+        <ion-label>Adicionar categoria: </ion-label>
+        <ion-input type="text" [(ngModel)]="categoria" name="categoria"></ion-input>
+      </ion-item>
+      <ion-button primary ion-button type="submit">Add</ion-button>
+    </form>
+  <ion-list>
+      <ion-item *ngFor ="let item of data" (click)="editItem(item)">
+        <div><ion-label>{{ item.descricao }}</ion-label></div>
+      </ion-item>
+  </ion-list>
 </ion-content>

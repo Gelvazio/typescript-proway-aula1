@@ -11,6 +11,7 @@ const routes: Routes = [
     canActivate:[AuthorizationService], 
     loadChildren: './admin/admin.router.module#AdminRoutingModule' 
   },
+  
 ];
 
 @NgModule({

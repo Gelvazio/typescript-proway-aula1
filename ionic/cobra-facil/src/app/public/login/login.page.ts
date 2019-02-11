@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { Credential } from 'src/app/credential';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,13 @@ import { Credential } from 'src/app/credential';
 })
 export class LoginPage implements OnInit {
   credential: Credential = {email: 'contato@mauricioschmitz.com.br', senha: 123456}
-  constructor(private service: AuthenticationService, private router: Router) { }
+  constructor(
+    private service: AuthenticationService,
+    private router: Router,
+    private menuController: MenuController
+  ) { }
   ngOnInit() {
+    this.menuController.enable(false,'first')
   }
 
   login(){

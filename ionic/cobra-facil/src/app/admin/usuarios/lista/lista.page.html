@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de usuários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-card *ngFor ="let item of data">
+            <ion-item>
+                <ion-icon name="contact" slot="start"></ion-icon>
+                <ion-label>{{ item.nome }}</ion-label>
+                <ion-button fill="outline" slot="end">Editar</ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="mail" slot="start"></ion-icon>
+                <ion-label>{{ item.email }}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="checkmark" slot="start"></ion-icon>
+                <ion-label>{{ item.email }}</ion-label>
+            </ion-item>
+        </ion-card>
+    </ion-list>
+</ion-content>

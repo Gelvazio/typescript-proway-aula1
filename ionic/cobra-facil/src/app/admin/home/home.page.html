@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Ionic Blank
     </ion-title>
@@ -7,7 +10,8 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-button primary expand="block"  href="admin/categorias"><ion-icon name="grid"></ion-icon>Categorias</ion-button>
-  <ion-button primary expand="block"><ion-icon name="cash"></ion-icon>Contas</ion-button>
+  <ion-button primary expand="block" [routerLink]="'/admin/categorias'"><ion-icon name="grid"></ion-icon>Categorias</ion-button>
+  <ion-button primary expand="block" [routerLink]="'/admin/usuarios'"><ion-icon name="contacts"></ion-icon>Usuários</ion-button>
+  <ion-button primary expand="block" [routerLink]="'/admin/contas'"><ion-icon name="cash"></ion-icon>Contas</ion-button>
   <ion-button primary expand="block" (click)="logout()"><ion-icon name="log-out"></ion-icon>Sair</ion-button>
 </ion-content>
