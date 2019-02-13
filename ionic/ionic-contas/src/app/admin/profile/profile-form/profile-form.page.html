@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card>
+      <ion-item>
+            <ion-img [src]="imagem"></ion-img>
+        </ion-item>
+
+        <ion-item>
+            <ion-button slot="end" color="light">
+                <ion-icon slot="icon-only" name="photos"  ></ion-icon>
+              </ion-button>
+    <ion-button slot="end" color="light" (click)="takePicture()">
+      <ion-icon slot="icon-only" name="camera" ></ion-icon>
+    </ion-button>
+        </ion-item>
+</ion-card>
+</ion-content>

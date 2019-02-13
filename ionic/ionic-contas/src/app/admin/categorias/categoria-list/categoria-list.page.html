@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goNew()"><ion-icon slot="icon-only" name="add-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>categoria-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-virtual-scroll [items]="categorias">
+      <ion-item *virtualItem="let categoria">
+        {{ categoria.nome }}
+      </ion-item>
+    </ion-virtual-scroll>
+  </ion-list>
+</ion-content>
